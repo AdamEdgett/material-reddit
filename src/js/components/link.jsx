@@ -28,9 +28,9 @@ const Link = React.createClass({
     const thumbnailSrc = _.isEqual(thumbnail, 'self') ?  '' : thumbnail;
     return (
       <div className='link-container card'>
-        <div className='thumbnail'>
+        <a href={url} className='thumbnail'>
           <img src={thumbnailSrc} />
-        </div>
+        </a>
         <div className='content'>
           <a href={url} className='link'>{title}</a>
           <div className='info'>

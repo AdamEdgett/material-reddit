@@ -70,6 +70,12 @@ body {
     height: 70px;
     overflow: hidden;
     display: inline-block;
+
+    img {
+      position: relative;
+      left: 50%;
+      transform: translateX(-50%);
+    }
   }
 
   .content {
