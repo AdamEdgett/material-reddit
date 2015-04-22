@@ -1,5 +1,7 @@
 @import "modules/_colors.scss";
 
+$theme-color: $red-500;
+
 body {
   font-family: Roboto, sans-serif;
   margin: 0;
@@ -17,7 +19,7 @@ body {
     text-decoration: none;
 
     &:hover {
-      color: $red-500;
+      color: $theme-color;
     }
   }
 
@@ -34,7 +36,7 @@ body {
       display: inline;
 
       a {
-        color: $red-500;
+        color: $theme-color;
 
         &:hover {
           text-decoration: underline;
@@ -48,7 +50,7 @@ body {
 
       .comments {
         &:hover {
-          color: $red-500;
+          color: $theme-color;
         }
 
         span {
