@@ -9,7 +9,12 @@ const List = require('components/list.jsx');
 window.onload = function () {
   const documentRoot = document.querySelector('#content-anchor');
 
-  var component = React.render(<List />, documentRoot);
+  var component = React.render(
+    <Page>
+      <List />
+    </Page>,
+    documentRoot
+  );
 
   reqwest({
     url: 'https://www.reddit.com/.json',
@@ -18,7 +23,9 @@ window.onload = function () {
     crossOrigin: true,
     success: function (resp) {
       component.setProps({
-        links: humps.camelizeKeys(_.pluck(resp.data.children, 'data'))
+        childProps: {
+          links: humps.camelizeKeys(_.pluck(resp.data.children, 'data'))
+        }
       });
     }
   });
