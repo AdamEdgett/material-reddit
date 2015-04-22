@@ -36,11 +36,11 @@ const Link = React.createClass({
           <div className='info'>
             <div className='description'>
               <span className='timestamp' title={created.toString()}>{`Submitted ${created.fromNow()}`}</span>
-              <span className='author'> by <a href={`/u/${author}`}>{author}</a></span>
-              <span className='subreddit'> on <a href={`/r/${subreddit}`}>{subreddit}</a></span>
+              <span className='author'> by <a href={`http://www.reddit.com/u/${author}`}>{author}</a></span>
+              <span className='subreddit'> on <a href={`http://www.reddit.com/r/${subreddit}`}>{subreddit}</a></span>
             </div>
             <div className='controls'>
-              <a href={permalink} className='comments'>
+              <a href={`http://www.reddit.com${permalink}`} className='comments'>
                 <span className='count'>{numComments}</span>
                 <Icon type='comment' />
               </a>
