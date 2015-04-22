@@ -1,0 +1,53 @@
+.link-container {
+  a {
+    color: $grey-400;
+    text-decoration: none;
+
+    &:hover {
+      color: $theme-color;
+    }
+  }
+
+  .link {
+    font-size: 1.2rem;
+    color: $grey-800;
+
+    &:visited {
+      color: $grey-500;
+    }
+  }
+
+  .info {
+    font-size: 0.9rem;
+    color: $grey-400;
+
+    .description {
+      display: inline;
+
+      a {
+        color: $theme-color;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    .controls {
+      display: inline;
+      float: right;
+
+      .comments {
+        transition: color 0.3s ease;
+
+        &:hover {
+          color: $theme-color;
+        }
+
+        span {
+          margin: 5px;
+        }
+      }
+    }
+  }
+}

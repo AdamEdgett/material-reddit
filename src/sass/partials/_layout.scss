@@ -1,0 +1,44 @@
+.list {
+  @media(max-width: 1800px) {
+    width: 66.66%;
+  }
+  @media(max-width: 1260px) {
+    width: 840px;
+  }
+  @media(max-width: 920px) {
+    width: auto;
+  }
+
+  width: 1200px;
+  padding-left: 40px;
+  padding-right: 40px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.card {
+  background-color: $white;
+  box-shadow: 0 -1px 0 $grey-300, 0 0 2px rgba(0,0,0,.12), 0 2px 4px rgba(0,0,0,.24);
+  margin: 10px;
+
+  .thumbnail {
+    padding: 0;
+    width: 70px;
+    height: 70px;
+    overflow: hidden;
+    display: inline-block;
+
+    img {
+      position: relative;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+
+  .content {
+    padding: 15px 22px;
+    display: inline-block;
+    vertical-align: top;
+    width: 87%;
+  }
+}
