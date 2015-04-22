@@ -1,6 +1,8 @@
 const React = require('react/addons');
 const _ = require('lodash');
 
+const Nav = require('components/nav.jsx');
+
 const Page = React.createClass({
   propTypes: {
     childProps: React.PropTypes.object
@@ -22,6 +24,7 @@ const Page = React.createClass({
   render: function() {
     return (
       <div>
+        <Nav />
         {this.renderChildren()}
       </div>
     );
