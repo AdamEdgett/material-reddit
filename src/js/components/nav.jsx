@@ -19,12 +19,12 @@ const Nav = React.createClass({
 
         <div className='bottom'>
           <div className='sorts'>
-            <a href='/hot'>hot</a>
-            <a href='/new'>new</a>
-            <a href='/rising'>rising</a>
-            <a href='/controversial'>controversial</a>
-            <a href='/top'>top</a>
-            <a href='/guilded'>guilded</a>
+            <a href='#hot'>hot</a>
+            <a href='#new'>new</a>
+            <a href='#rising'>rising</a>
+            <a href='#controversial'>controversial</a>
+            <a href='#top'>top</a>
+            <a href='#guilded'>guilded</a>
           </div>
         </div>
       </div>
