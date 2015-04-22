@@ -64,8 +64,21 @@ body {
 }
 
 .list {
-  width: 900px;
-  margin: 0 auto;
+  @media(max-width: 1800px) {
+    width: 66.66%;
+  }
+  @media(max-width: 1260px) {
+    width: 840px;
+  }
+  @media(max-width: 920px) {
+    width: auto;
+  }
+
+  width: 1200px;
+  padding-left: 40px;
+  padding-right: 40px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .link-container {
