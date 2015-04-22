@@ -8,6 +8,7 @@ var babelify = require('babelify');
 
 function swallowError(error) {
   console.log(error.toString());
+  console.error("\u0007"); // terminal bell/beep code
   this.emit('end');
 }
 
