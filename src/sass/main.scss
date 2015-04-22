@@ -94,6 +94,10 @@ body {
   .link {
     font-size: 1.2rem;
     color: $grey-800;
+
+    &:visited {
+      color: $grey-500;
+    }
   }
 
   .info {
@@ -117,6 +121,8 @@ body {
       float: right;
 
       .comments {
+        transition: color 0.3s ease;
+
         &:hover {
           color: $theme-color;
         }
