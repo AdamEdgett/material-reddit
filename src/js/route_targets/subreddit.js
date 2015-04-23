@@ -19,10 +19,10 @@ const SubredditTarget = {
 
     let requestUrl = 'https://www.reddit.com/';
     if (!_.isEmpty(subreddit)) {
-      requestUrl += `r/${subreddit}`;
+      requestUrl += `r/${subreddit}/`;
     }
     if (!_.isEmpty(sort)) {
-      requestUrl += `/${sort}`;
+      requestUrl += `${sort}`;
     }
     requestUrl += '.json';
 
