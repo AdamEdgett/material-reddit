@@ -54,7 +54,12 @@ const Nav = React.createClass({
     const request = Aviator.getCurrentRequest();
     const { matchedRoute, namedParams, queryParams } = request;
 
-    Avaitor.navigate(matchedRoute, {
+    let route = matchedRoute;
+    if (!_.contains(route, '/:sort')) {
+      route += '/:sort';
+    }
+
+    Avaitor.navigate(route, {
       namedParams: _.defaults( {sort: sort}, namedParams )
     });
   }
