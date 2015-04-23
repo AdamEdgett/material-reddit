@@ -27,11 +27,37 @@
     height: 70px;
     overflow: hidden;
     display: inline-block;
+    position: relative;
 
     img {
       position: relative;
       left: 50%;
       transform: translateX(-50%);
+    }
+
+    &.nsfw {
+      color: white;
+      background-color: $red-800;
+
+      .placeholder-logo {
+        top: 12px;
+      }
+
+      &::before {
+        content: 'nsfw';
+        position: absolute;
+        top: 48px;
+        width: inherit;
+        text-align: center;
+        background-color: $grey-700;
+      }
+    }
+
+    .placeholder-logo {
+      width: inherit;
+      position: absolute;
+      top: 18px;
+      text-align: center;
     }
   }
 
