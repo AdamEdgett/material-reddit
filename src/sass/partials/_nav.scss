@@ -1,6 +1,6 @@
 .nav {
   width: 100%;
-  height: 150px;
+  height: 153px;
   background-color: $theme-color;
   color: $white;
 
@@ -18,7 +18,7 @@
 
     .logo {
       display: inline-block;
-      margin: 20px;
+      margin: 15px;
       font-size: 3rem;
 
       .reddit {
@@ -30,6 +30,11 @@
       float: right;
       vertical-align: top;
       padding: 10px;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: $grey-400;
+      }
     }
   }
 
@@ -38,16 +43,21 @@
     margin-right: 20px;
     vertical-align: middle;
 
-    .sorts {
-      a {
-        padding: 20px 10px;
-        font-size: 1.2rem;
-        text-transform: uppercase;
-        transition: background-color 0.3s ease;
+    .sort {
+      display: inline-block;
+      padding: 20px 10px;
+      font-size: 1.2rem;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
 
-        &:hover {
-          background-color: rgba(255, 255, 255, 0.3);
-        }
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.3);
+        border-bottom: 3px solid rgba(255, 255, 255, 0.4);
+      }
+
+      &.current {
+        border-bottom: 3px solid $white;
       }
     }
   }
