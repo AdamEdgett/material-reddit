@@ -1,9 +1,33 @@
 const React = require('react');
+const Avaitor = require('aviator');
+const _ = require('lodash');
+const classnames = require('classnames');
 
 const Icon = require('components/icon.jsx');
 
 const Nav = React.createClass({
   render: function() {
+    const request = Aviator.getCurrentRequest();
+    const currentSort = request.namedParams.sort || 'hot';
+
+    const renderedSorts = _.map(
+      ['hot', 'new', 'rising', 'controversial', 'top'],
+      (sort) => {
+        const classes = {
+          'sort': true,
+          'current': _.isEqual(sort, currentSort)
+        };
+
+        return (
+          <div onClick={_.partial(this.changeSort, sort)}
+            className={classnames(classes)}
+            key={sort}>
+            <span>{sort}</span>
+          </div>
+        );
+      }
+    );
+
     return (
       <div className='nav'>
         <div className='top'>
@@ -19,16 +43,20 @@ const Nav = React.createClass({
 
         <div className='bottom'>
           <div className='sorts'>
-            <a href='#hot'>hot</a>
-            <a href='#new'>new</a>
-            <a href='#rising'>rising</a>
-            <a href='#controversial'>controversial</a>
-            <a href='#top'>top</a>
-            <a href='#guilded'>guilded</a>
+            {renderedSorts}
           </div>
         </div>
       </div>
     );
+  },
+
+  changeSort: function(sort) {
+    const request = Aviator.getCurrentRequest();
+    const { matchedRoute, namedParams, queryParams } = request;
+
+    Avaitor.navigate(matchedRoute, {
+      namedParams: _.defaults( {sort: sort}, namedParams )
+    });
   }
 });
 
