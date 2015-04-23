@@ -4,6 +4,12 @@ const _ = require('lodash');
 const Nav = require('components/nav.jsx');
 
 const Page = React.createClass({
+  statics: {
+    getMountNode: function() {
+      return document.querySelector('#content-anchor');
+    }
+  },
+
   propTypes: {
     childProps: React.PropTypes.object
   },

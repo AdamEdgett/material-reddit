@@ -42,7 +42,8 @@ gulp.task('compass', function() {
 gulp.task('connect', function() {
   connect.server({
     root: 'public/',
-    port: 1337
+    port: 1337,
+    fallback: 'public/index.html'
   });
 });
 
