@@ -1,6 +1,7 @@
 const React = require('react');
 const _ = require('lodash');
 const moment = require('moment');
+const classnames = require('classnames');
 
 const Icon = require('components/icon.jsx');
 
@@ -25,11 +26,24 @@ const Link = React.createClass({
     const { url, title, createdUtc, author, subreddit, permalink, thumbnail, numComments } = this.props;
 
     const created = moment.unix(createdUtc);
-    const thumbnailSrc = _.isEqual(thumbnail, 'self') ?  '' : thumbnail;
+
+    let thumbnailClasses = {
+      'thumbnail': true
+    };
+
+    let renderedThumbnail;
+    if (_.contains(['self', 'nsfw'], thumbnail) || _.isEmpty(thumbnail)) {
+      if (!_.isEmpty(thumbnail)) thumbnailClasses[thumbnail] = true;
+      renderedThumbnail = <Icon type='reddit' size='2x' className='placeholder-logo'/>;
+    }
+    else {
+      renderedThumbnail = <img src={thumbnail} />;
+    }
+
     return (
       <div className='link-container card'>
-        <a href={url} className='thumbnail'>
-          <img src={thumbnailSrc} />
+        <a href={url} className={classnames(thumbnailClasses)}>
+          {renderedThumbnail}
         </a>
         <div className='content'>
           <a href={url} className='link'>{title}</a>
