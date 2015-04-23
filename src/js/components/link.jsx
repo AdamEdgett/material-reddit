@@ -42,9 +42,11 @@ const Link = React.createClass({
 
     return (
       <div className='link-container card'>
-        <a href={url} className={classnames(thumbnailClasses)}>
-          {renderedThumbnail}
-        </a>
+        <div className='thumbnail-container'>
+          <a href={url} className={classnames(thumbnailClasses)}>
+            {renderedThumbnail}
+          </a>
+        </div>
         <div className='content'>
           <a href={url} className='link'>{title}</a>
           <div className='info'>

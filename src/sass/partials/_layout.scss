@@ -20,43 +20,47 @@
   box-shadow: 0 -1px 0 $grey-300, 0 0 2px rgba(0,0,0,.12), 0 2px 4px rgba(0,0,0,.24);
   margin: 10px;
 
-  .thumbnail {
-    padding: 0;
-    width: 70px;
-    height: 70px;
-    overflow: hidden;
+  .thumbnail-container {
     display: inline-block;
-    position: relative;
 
-    img {
+    .thumbnail {
+      padding: 0;
+      width: 70px;
+      height: 70px;
+      overflow: hidden;
+      display: inline-block;
       position: relative;
-      left: 50%;
-      transform: translateX(-50%);
-    }
 
-    &.nsfw {
-      color: white;
-      background-color: $red-800;
+      img {
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      &.nsfw {
+        color: white;
+        background-color: $red-800;
+
+        .placeholder-logo {
+          top: 12px;
+        }
+
+        &::before {
+          content: 'nsfw';
+          position: absolute;
+          top: 48px;
+          width: inherit;
+          text-align: center;
+          background-color: $grey-700;
+        }
+      }
 
       .placeholder-logo {
-        top: 12px;
-      }
-
-      &::before {
-        content: 'nsfw';
-        position: absolute;
-        top: 48px;
         width: inherit;
+        position: absolute;
+        top: 18px;
         text-align: center;
-        background-color: $grey-700;
       }
-    }
-
-    .placeholder-logo {
-      width: inherit;
-      position: absolute;
-      top: 18px;
-      text-align: center;
     }
   }
 
@@ -64,6 +68,6 @@
     padding: 15px 22px;
     display: inline-block;
     vertical-align: top;
-    width: 87%;
+    width: 86%;
   }
 }
