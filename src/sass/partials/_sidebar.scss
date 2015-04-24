@@ -1,0 +1,34 @@
+.sidebar {
+  position: fixed;
+  top: 153px;
+  bottom: 0;
+  width: 250px;
+  overflow: scroll;
+  z-index: 5;
+  padding: 10px 0;
+  background-color: $white;
+  transform: translateX(-270px);
+  transition: transform 0.5s ease;
+  box-shadow: 0 0 4px rgba(0,0,0,.14),2px 4px 8px rgba(0,0,0,.28);
+
+  &.expanded {
+    transform: translateX(0);
+  }
+
+  .subreddit {
+    padding: 10px 50px;
+
+    a {
+      color: $grey-700;
+      text-decoration: none;
+    }
+
+    &.current {
+      background-color: $grey-300;
+
+      a {
+        color: $theme-color;
+      }
+    }
+  }
+}

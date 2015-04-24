@@ -17,6 +17,18 @@ const SubredditTarget = {
       Page.getMountNode()
     );
 
+    reqwest({
+      url: 'https://www.reddit.com/subreddits.json',
+      method: 'get',
+      type: 'json',
+      crossOrigin: true,
+      success: function (resp) {
+        component.setProps({
+          subreddits: humps.camelizeKeys(_.pluck(resp.data.children, 'data'))
+        });
+      }
+    });
+
     let requestUrl = 'https://www.reddit.com/';
     if (!_.isEmpty(subreddit)) {
       requestUrl += `r/${subreddit}/`;

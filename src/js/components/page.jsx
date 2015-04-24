@@ -11,11 +11,13 @@ const Page = React.createClass({
   },
 
   propTypes: {
+    subreddits: React.PropTypes.array,
     childProps: React.PropTypes.object
   },
 
   renderChildren: function() {
-    const cloneWithProps = _.partial(React.addons.cloneWithProps, _, this.props.childProps);
+    const { childProps } = this.props;
+    const cloneWithProps = _.partial(React.addons.cloneWithProps, _, childProps);
 
     if (_.isArray(this.props.children)) {
       return _.map(this.props.children, (child) => {
@@ -28,9 +30,11 @@ const Page = React.createClass({
   },
 
   render: function() {
+    const { subreddits } = this.props;
+
     return (
       <div>
-        <Nav />
+        <Nav subreddits={subreddits} />
         {this.renderChildren()}
       </div>
     );

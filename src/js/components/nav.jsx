@@ -3,10 +3,23 @@ const Avaitor = require('aviator');
 const _ = require('lodash');
 const classnames = require('classnames');
 
+const Sidebar = require('components/sidebar.jsx');
 const Icon = require('components/icon.jsx');
 
 const Nav = React.createClass({
+  propTypes: {
+    subreddits: React.PropTypes.array
+  },
+
+  getInitialState: function() {
+    return {
+      sidebarExpanded: false
+    };
+  },
+
   render: function() {
+    const { subreddits } = this.props;
+
     const request = Aviator.getCurrentRequest();
     const currentSort = request.namedParams.sort || 'hot';
 
@@ -30,22 +43,25 @@ const Nav = React.createClass({
 
     return (
       <div className='nav'>
-        <div className='top'>
-          <Icon type='navicon' size='lg' />
-          <a className='logo' href='/'>
-            <Icon type='reddit' />
-            <span>reddit</span>
-          </a>
-          <a className='github-link' href='http://github.com/adamedgett/material-reddit'>
-            <Icon type='github' size='lg' />
-          </a>
-        </div>
+        <div className='navbar'>
+          <div className='top'>
+            <Icon onClick={this.toggleSidebar} type='navicon' size='lg' />
+            <a className='logo' href='/'>
+              <Icon type='reddit' />
+              <span>reddit</span>
+            </a>
+            <a className='github-link' href='http://github.com/adamedgett/material-reddit'>
+              <Icon type='github' size='lg' />
+            </a>
+          </div>
 
-        <div className='bottom'>
-          <div className='sorts'>
-            {renderedSorts}
+          <div className='bottom'>
+            <div className='sorts'>
+              {renderedSorts}
+            </div>
           </div>
         </div>
+        <Sidebar subreddits={subreddits} expanded={this.state.sidebarExpanded} />
       </div>
     );
   },
@@ -61,6 +77,12 @@ const Nav = React.createClass({
 
     Avaitor.navigate(route, {
       namedParams: _.defaults( {sort: sort}, namedParams )
+    });
+  },
+
+  toggleSidebar: function() {
+    this.setState({
+      sidebarExpanded: !this.state.sidebarExpanded
     });
   }
 });

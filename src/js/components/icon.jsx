@@ -6,11 +6,12 @@ const Icon = React.createClass({
   propTypes: {
     type: React.PropTypes.string.isRequired,
     size: React.PropTypes.string,
-    className: React.PropTypes.string
+    className: React.PropTypes.string,
+    onClick: React.PropTypes.func
   },
 
   render: function() {
-    const { type, size, className } = this.props;
+    const { type, size, className, onClick } = this.props;
 
     let classes = {};
     classes[className] = !_.isEmpty(className);
@@ -18,7 +19,7 @@ const Icon = React.createClass({
     classes[`fa fa-${type}`] = true;
     classes[`fa-${size}`] = !_.isEmpty(size);
 
-    return <i className={classnames(classes)} />;
+    return <i className={classnames(classes)} onClick={onClick} />;
   }
 });
 
