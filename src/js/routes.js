@@ -15,7 +15,8 @@ const Routes = {
   },
   '/:sort': {
     target: SubredditTarget,
-    '/': 'view'
+    '/': 'view',
+    '/:time': 'view'
   }
 };
 
