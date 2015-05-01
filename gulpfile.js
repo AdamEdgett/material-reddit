@@ -2,6 +2,8 @@ var gulp = require('gulp');
 
 var connect = require('gulp-connect');
 var compass = require('gulp-compass');
+var minifyCSS = require('gulp-minify-css');
+var gzip = require('gulp-gzip');
 var source = require('vinyl-source-stream');
 var browserify = require('browserify');
 var babelify = require('babelify');
@@ -36,7 +38,15 @@ gulp.task('compass', function() {
     css: 'public/css',
     sass: 'src/sass',
   }))
-  .on('error', swallowError);
+  .on('error', swallowError)
+  .pipe(minifyCSS())
+  .pipe(gulp.dest('public/css'));
+});
+
+gulp.task('compress', ['compass', 'js'], function() {
+  gulp.src([ './public/**/*.js', './public/**/*.css', './public/**/*.html'])
+    .pipe(gzip({ gzipOptions: { level: 9 }}))
+    .pipe(gulp.dest('./public'));
 });
 
 gulp.task('connect', function() {
@@ -52,5 +62,5 @@ gulp.task('watch', function() {
   gulp.watch(paths.js, ['js']);
 });
 
-gulp.task('build', ['compass', 'js']);
+gulp.task('build', ['compass', 'js', 'compress']);
 gulp.task('default', ['build', 'connect', 'watch']);
