@@ -1,0 +1,22 @@
+{
+  "name": "material-reddit",
+  "version": "0.0.0",
+  "homepage": "https://github.com/AdamEdgett/material-reddit",
+  "authors": [
+    "Adam Edgett <AdamEdgett@gmail.com>"
+  ],
+  "description": "Material designed client for reddit",
+  "main": "src/app.js",
+  "keywords": [
+    "reddit",
+    "material"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

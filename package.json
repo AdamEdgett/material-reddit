@@ -3,8 +3,8 @@
   "author": "Adam Edgett",
   "description": "Material designed client for reddit",
   "repository": {
-      "url": "https://github.com/adamedgett/material-reddit",
-      "type": "git"
+    "url": "https://github.com/adamedgett/material-reddit",
+    "type": "git"
   },
   "dependencies": {
     "react": "^0.13.2"
@@ -12,7 +12,7 @@
   "devDependencies": {
     "aviator": "^0.4.4",
     "babelify": "^5.0.4",
-    "bower": "^1.3.12",
+    "bower": "^1.4.1",
     "browserify": "^8.1.1",
     "classnames": "^1.2.1",
     "gulp": "^3.8.1",
