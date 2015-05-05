@@ -5,6 +5,8 @@ import classnames from 'classnames';
 
 import Link from 'components/link.jsx';
 
+const DEFAULT_COUNT = 25;
+
 const TIME_RANGES = {
   'hour': 'past hour',
   'day': 'past 24 hours',
@@ -85,7 +87,7 @@ const List = React.createClass({
 
     Avaitor.navigate(matchedRoute, {
       namedParams: namedParams,
-      queryParams: navParams,
+      queryParams: _.extend(navParams, { count: DEFAULT_COUNT })
     });
   }
 });

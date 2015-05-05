@@ -6,12 +6,10 @@ const humps = require('humps');
 const Page = require('components/page.jsx');
 const List = require('components/list.jsx');
 
-const DEFAULT_COUNT = 25;
-
 const SubredditTarget = {
   view: function(request) {
     const { subreddit, sort, time } = request.namedParams;
-    const { before, after } = request.queryParams;
+    const { count, before, after } = request.queryParams;
 
     var component = React.render(
       <Page>
@@ -41,12 +39,14 @@ const SubredditTarget = {
     }
     requestUrl += '.json';
 
-    let data = {
-      count: DEFAULT_COUNT
-    };
+    let data = {};
 
     if (time) {
       data.t = time;
+    }
+
+    if (count) {
+      data.count = count;
     }
 
     if (after) {
