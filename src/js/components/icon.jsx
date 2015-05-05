@@ -1,6 +1,6 @@
-const React = require('react');
-const _ = require('lodash');
-const classnames = require('classnames');
+import React from 'react';
+import _ from 'lodash';
+import classnames from 'classnames';
 
 const Icon = React.createClass({
   propTypes: {

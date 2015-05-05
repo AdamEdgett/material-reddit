@@ -1,9 +1,9 @@
-const React = require('react');
-const _ = require('lodash');
-const moment = require('moment');
-const classnames = require('classnames');
+import React from 'react';
+import _ from 'lodash';
+import moment from 'moment';
+import classnames from 'classnames';
 
-const Icon = require('components/icon.jsx');
+import Icon from 'components/icon.jsx';
 
 const Link = React.createClass({
   propTypes: {

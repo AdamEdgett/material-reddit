@@ -1,7 +1,7 @@
-const React = require('react/addons');
-const _ = require('lodash');
+import React from 'react/addons';
+import _ from 'lodash';
 
-const Nav = require('components/nav.jsx');
+import Nav from 'components/nav.jsx';
 
 const Page = React.createClass({
   statics: {

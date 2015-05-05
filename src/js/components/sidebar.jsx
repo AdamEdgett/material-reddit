@@ -1,7 +1,7 @@
-const React = require('react');
-const Avaitor = require('aviator');
-const _ = require('lodash');
-const classnames = require('classnames');
+import React from 'react';
+import Avaitor from 'aviator';
+import _ from 'lodash';
+import classnames from 'classnames';
 
 const Sidebar = React.createClass({
   propTypes: {
