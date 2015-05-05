@@ -32,7 +32,7 @@ const Link = React.createClass({
     };
 
     let renderedThumbnail;
-    if (_.contains(['self', 'nsfw'], thumbnail) || _.isEmpty(thumbnail)) {
+    if (_.contains(['default', 'self', 'nsfw'], thumbnail) || _.isEmpty(thumbnail)) {
       if (!_.isEmpty(thumbnail)) thumbnailClasses[thumbnail] = true;
       renderedThumbnail = <Icon type='reddit' size='2x' className='placeholder-logo'/>;
     }
