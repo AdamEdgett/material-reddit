@@ -6,9 +6,12 @@ const humps = require('humps');
 const Page = require('components/page.jsx');
 const List = require('components/list.jsx');
 
+const DEFAULT_COUNT = 25;
+
 const SubredditTarget = {
   view: function(request) {
     const { subreddit, sort, time } = request.namedParams;
+    const { before, after } = request.queryParams;
 
     var component = React.render(
       <Page>
@@ -38,16 +41,33 @@ const SubredditTarget = {
     }
     requestUrl += '.json';
 
+    let data = {
+      count: DEFAULT_COUNT
+    };
+
+    if (time) {
+      data.t = time;
+    }
+
+    if (after) {
+      data.after = after;
+    }
+    else if (before) {
+      data.before = before;
+    }
+
     reqwest({
       url: requestUrl,
       method: 'get',
       type: 'json',
       crossOrigin: true,
-      data: { t: time },
+      data: data,
       success: function (resp) {
         component.setProps({
           childProps: {
-            links: humps.camelizeKeys(_.pluck(resp.data.children, 'data'))
+            links: humps.camelizeKeys(_.pluck(resp.data.children, 'data')),
+            before: humps.camelizeKeys(resp.data.before),
+            after: humps.camelizeKeys(resp.data.after)
           }
         });
       }

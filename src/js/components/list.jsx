@@ -17,11 +17,13 @@ const List = React.createClass({
   propTypes: {
     links: React.PropTypes.arrayOf(
       React.PropTypes.shape(Link.propTypes)
-    )
+    ),
+    before: React.PropTypes.string,
+    after: React.PropTypes.string
   },
 
   render: function() {
-    const { links } = this.props;
+    const { links, after, before } = this.props;
     const request = Avaitor.getCurrentRequest();
 
     let timeSelector;
@@ -41,10 +43,23 @@ const List = React.createClass({
 
     const renderedLinks = _.map(links, (link) => <Link key={link.id} {...link} />);
 
+    let prevLink, nextLink;
+    if (!_.isEmpty(after)) {
+      nextLink = <a className='next' onClick={_.partial(this.onNav, {after: after})}>Next</a>
+    }
+
+    if (!_.isEmpty(before)) {
+      prevLink = <a className='prev' onClick={_.partial(this.onNav, {before: before})}>Prev</a>
+    }
+
     return (
       <div className='list'>
         {timeSelector}
         {renderedLinks}
+        <div className='page-nav'>
+          {prevLink}
+          {nextLink}
+        </div>
       </div>
     );
   },
@@ -63,6 +78,16 @@ const List = React.createClass({
       namedParams: _.defaults( {time: selectedTime}, namedParams )
     });
   },
+
+  onNav: function(navParams) {
+    const request = Aviator.getCurrentRequest();
+    const { matchedRoute, namedParams } = request;
+
+    Avaitor.navigate(matchedRoute, {
+      namedParams: namedParams,
+      queryParams: navParams,
+    });
+  }
 });
 
 export default List;

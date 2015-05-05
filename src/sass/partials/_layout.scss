@@ -13,6 +13,21 @@
   padding: 153px 40px 15px 40px;
   margin-left: auto;
   margin-right: auto;
+
+  .page-nav {
+    margin: 10px;
+
+    a {
+      cursor: pointer;
+
+      &.prev {
+      }
+
+      &.next {
+        float: right;
+      }
+    }
+  }
 }
 
 .card {
