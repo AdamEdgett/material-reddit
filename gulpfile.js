@@ -22,10 +22,9 @@ var paths = {
 gulp.task('js', function() {
   return browserify({
     entries: './src/js/app.js',
-    paths: [ './node_modules', './public/vendor', './src/js' ]
+    paths: [ './node_modules', './public/vendor', './src/js' ],
+    transform: [babelify]
   })
-    .transform(babelify)
-    .on('error', swallowError)
     .bundle()
     .on('error', swallowError)
     .pipe(source('./public/js/bundle.js'))
