@@ -1,17 +1,19 @@
 const SubredditTarget = require('route_targets/subreddit.js');
 
 const Routes = {
+  '/r': {
+    target: SubredditTarget,
+    '/:subreddit': {
+      '/': 'view',
+      '/:sort': {
+        '/': 'view',
+        '/:time': 'view'
+      }
+    }
+  },
   '/': {
     target: SubredditTarget,
-    '/': 'view',
-  },
-  '/r/:subreddit': {
-    target: SubredditTarget,
-    '/': 'view',
-    '/:sort': {
-      '/': 'view',
-      '/:time': 'view'
-    }
+    '/': 'view'
   },
   '/:sort': {
     target: SubredditTarget,
