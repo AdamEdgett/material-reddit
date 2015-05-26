@@ -16,8 +16,10 @@
 
   .page-nav {
     margin: 10px;
+    min-height: 20px;
 
     a {
+      background-color: $theme-color;
       cursor: pointer;
 
       &.prev {

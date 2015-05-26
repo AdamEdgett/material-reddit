@@ -16,8 +16,8 @@ const Icon = React.createClass({
     let classes = {};
     classes[className] = !_.isEmpty(className);
     classes[type] = true;
-    classes[`fa fa-${type}`] = true;
-    classes[`fa-${size}`] = !_.isEmpty(size);
+    classes[`mdi-${type}`] = true;
+    classes[`${size}`] = !_.isEmpty(size);
 
     return <i className={classnames(classes)} onClick={onClick} />;
   }

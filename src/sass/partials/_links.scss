@@ -42,6 +42,10 @@
       display: inline;
       float: right;
 
+      i {
+        vertical-align: middle;
+      }
+
       .comments {
         transition: color 0.3s ease;
 

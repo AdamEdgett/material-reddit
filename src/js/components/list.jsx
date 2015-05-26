@@ -3,6 +3,7 @@ import Avaitor from 'aviator';
 import _ from 'lodash';
 import classnames from 'classnames';
 
+import Icon from 'components/icon.jsx';
 import Link from 'components/link.jsx';
 
 const DEFAULT_COUNT = 25;
@@ -47,11 +48,21 @@ const List = React.createClass({
 
     let prevLink, nextLink;
     if (!_.isEmpty(after)) {
-      nextLink = <a className='next' onClick={_.partial(this.onNav, {after: after})}>Next</a>
+      nextLink = (
+        <a className='next btn waves-effect waves-light' onClick={_.partial(this.onNav, {after: after})}>
+          Next
+          <Icon type='navigation-chevron-right' className='right' />
+        </a>
+      );
     }
 
     if (!_.isEmpty(before)) {
-      prevLink = <a className='prev' onClick={_.partial(this.onNav, {before: before})}>Prev</a>
+      prevLink = (
+        <a className='prev btn waves-effect waves-light' onClick={_.partial(this.onNav, {before: before})}>
+          <Icon type='navigation-chevron-left' className='left' />
+          Prev
+        </a>
+      );
     }
 
     return (

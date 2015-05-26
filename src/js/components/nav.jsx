@@ -45,13 +45,15 @@ const Nav = React.createClass({
       <div className='nav'>
         <div className='navbar'>
           <div className='top'>
-            <Icon onClick={this.toggleSidebar} type='navicon' size='lg' />
+            <a className='navicon waves-effect waves-light waves-circle' onClick={this.toggleSidebar}>
+              <Icon type='navigation-menu' size='small' />
+            </a>
             <a className='logo' href='/'>
-              <Icon type='reddit' />
+              <Icon type='reddit fa fa-reddit' />
               <span>reddit</span>
             </a>
             <a className='github-link' href='http://github.com/adamedgett/material-reddit'>
-              <Icon type='github' size='lg' />
+              <Icon type='github fa fa-github' size='fa-lg' />
             </a>
           </div>
 

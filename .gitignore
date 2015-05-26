@@ -2,5 +2,7 @@ node_modules/
 bower_components/
 vendor/bundle
 .sass-cache/
+
 public/css/
+public/font/
 bundle.js
