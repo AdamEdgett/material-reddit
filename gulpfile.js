@@ -42,11 +42,6 @@ gulp.task('compass', function() {
   .pipe(gulp.dest('public/css'));
 });
 
-gulp.task('font', function() {
-  gulp.src('./bower_components/materialize/font/**/*')
-    .pipe(gulp.dest('./public/font'));
-});
-
 gulp.task('compress', ['compass', 'js'], function() {
   gulp.src([ './public/**/*.js', './public/**/*.css', './public/**/*.html'])
     .pipe(gzip({ gzipOptions: { level: 9 }}))
@@ -66,5 +61,5 @@ gulp.task('watch', function() {
   gulp.watch(paths.js, ['js']);
 });
 
-gulp.task('build', ['compass', 'js', 'font', 'compress']);
+gulp.task('build', ['compass', 'js', 'compress']);
 gulp.task('default', ['build', 'connect', 'watch']);
