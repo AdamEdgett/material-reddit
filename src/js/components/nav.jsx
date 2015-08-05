@@ -49,11 +49,11 @@ const Nav = React.createClass({
               <Icon type='navigation-menu' size='small' />
             </a>
             <a className='logo' href='/'>
-              <Icon type='reddit fa fa-reddit' />
+              <Icon type='reddit' family='fa' />
               <span>reddit</span>
             </a>
             <a className='github-link' href='http://github.com/adamedgett/material-reddit'>
-              <Icon type='github fa fa-github' size='fa-lg' />
+              <Icon type='github' family='fa' size='fa-lg' />
             </a>
           </div>
 

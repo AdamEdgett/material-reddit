@@ -34,7 +34,7 @@ const Link = React.createClass({
     let renderedThumbnail;
     if (_.contains(['default', 'self', 'nsfw'], thumbnail) || _.isEmpty(thumbnail)) {
       if (!_.isEmpty(thumbnail)) thumbnailClasses[thumbnail] = true;
-      renderedThumbnail = <Icon type='fa fa-reddit' size='fa-2x' className='placeholder-logo'/>;
+      renderedThumbnail = <Icon type='reddit' family='fa' size='fa-2x' className='placeholder-logo'/>;
     }
     else {
       renderedThumbnail = <img src={thumbnail} />;
