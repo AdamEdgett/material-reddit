@@ -1,7 +1,6 @@
 import React from 'react';
 import Avaitor from 'aviator';
 import _ from 'lodash';
-import classnames from 'classnames';
 
 import Icon from 'components/icon.jsx';
 import Link from 'components/link.jsx';

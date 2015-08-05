@@ -1,7 +1,7 @@
 import React from 'react';
 import Avaitor from 'aviator';
 import _ from 'lodash';
-import classnames from 'classnames';
+import classNames from 'classnames';
 
 import Sidebar from 'components/sidebar.jsx';
 import Icon from 'components/icon.jsx';
@@ -33,7 +33,7 @@ const Nav = React.createClass({
 
         return (
           <div onClick={_.partial(this.changeSort, sort)}
-            className={classnames(classes)}
+            className={classNames(classes)}
             key={sort}>
             <span>{sort}</span>
           </div>

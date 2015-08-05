@@ -1,6 +1,6 @@
 import React from 'react';
 import _ from 'lodash';
-import classnames from 'classnames';
+import classNames from 'classnames';
 
 const Icon = React.createClass({
   propTypes: {
@@ -27,7 +27,7 @@ const Icon = React.createClass({
     classes[`${family}-${type}`] = true;
     classes[`${size}`] = !_.isEmpty(size);
 
-    return <i className={classnames(classes)} onClick={onClick} />;
+    return <i className={classNames(classes)} onClick={onClick} />;
   }
 });
 

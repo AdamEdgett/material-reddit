@@ -1,7 +1,7 @@
 import React from 'react';
 import _ from 'lodash';
 import moment from 'moment';
-import classnames from 'classnames';
+import classNames from 'classnames';
 
 import Icon from 'components/icon.jsx';
 
@@ -43,7 +43,7 @@ const Link = React.createClass({
     return (
       <div className='link-container card'>
         <div className='thumbnail-container'>
-          <a href={url} className={classnames(thumbnailClasses)}>
+          <a href={url} className={classNames(thumbnailClasses)}>
             {renderedThumbnail}
           </a>
         </div>

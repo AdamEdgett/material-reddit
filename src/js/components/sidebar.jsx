@@ -1,7 +1,7 @@
 import React from 'react';
 import Avaitor from 'aviator';
 import _ from 'lodash';
-import classnames from 'classnames';
+import classNames from 'classnames';
 
 const Sidebar = React.createClass({
   propTypes: {
@@ -28,7 +28,7 @@ const Sidebar = React.createClass({
       };
 
       return (
-        <div className={classnames(subredditClasses)} key={subreddit.displayName}>
+        <div className={classNames(subredditClasses)} key={subreddit.displayName}>
           <a href={subreddit.url}>{subreddit.displayName}</a>
         </div>
       );
@@ -40,7 +40,7 @@ const Sidebar = React.createClass({
     };
 
     return (
-      <div className={classnames(classes)}>
+      <div className={classNames(classes)}>
         {subredditList}
       </div>
     );
