@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component, PropTypes } from 'react';
 import Avaitor from 'aviator';
 import _ from 'lodash';
 import classNames from 'classnames';
@@ -6,18 +6,19 @@ import classNames from 'classnames';
 import Sidebar from 'components/sidebar.jsx';
 import Icon from 'components/icon.jsx';
 
-const Nav = React.createClass({
-  propTypes: {
-    subreddits: React.PropTypes.array
-  },
+const propTypes = {
+  subreddits: PropTypes.array
+};
 
-  getInitialState: function() {
-    return {
+class Nav extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
       sidebarExpanded: false
     };
-  },
+  }
 
-  render: function() {
+  render() {
     const { subreddits } = this.props;
 
     const request = Aviator.getCurrentRequest();
@@ -45,7 +46,7 @@ const Nav = React.createClass({
       <div className='nav'>
         <div className='navbar'>
           <div className='top'>
-            <a className='navicon waves-effect waves-light waves-circle' onClick={this.toggleSidebar}>
+            <a className='navicon waves-effect waves-light waves-circle' onClick={this.toggleSidebar.bind(this)}>
               <Icon type='navigation-menu' size='small' />
             </a>
             <a className='logo' href='/'>
@@ -66,9 +67,9 @@ const Nav = React.createClass({
         <Sidebar subreddits={subreddits} expanded={this.state.sidebarExpanded} />
       </div>
     );
-  },
+  }
 
-  changeSort: function(sort) {
+  changeSort(sort) {
     const request = Aviator.getCurrentRequest();
     const { matchedRoute, namedParams, queryParams } = request;
 
@@ -80,13 +81,15 @@ const Nav = React.createClass({
     Avaitor.navigate(route, {
       namedParams: _.defaults( {sort: sort}, namedParams )
     });
-  },
+  }
 
-  toggleSidebar: function() {
+  toggleSidebar() {
     this.setState({
       sidebarExpanded: !this.state.sidebarExpanded
     });
   }
-});
+}
+
+Nav.propTypes = propTypes;
 
 export default Nav;

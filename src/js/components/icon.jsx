@@ -1,23 +1,21 @@
-import React from 'react';
+import React, { Component, PropTypes } from 'react';
 import _ from 'lodash';
 import classNames from 'classnames';
 
-const Icon = React.createClass({
-  propTypes: {
-    type: React.PropTypes.string.isRequired,
-    family: React.PropTypes.string,
-    size: React.PropTypes.string,
-    className: React.PropTypes.string,
-    onClick: React.PropTypes.func
-  },
+const propTypes = {
+  type: PropTypes.string.isRequired,
+  family: PropTypes.string,
+  size: PropTypes.string,
+  className: PropTypes.string,
+  onClick: PropTypes.func
+};
 
-  getDefaultProps: function () {
-    return {
-      family: 'mdi'
-    };
-  },
+const defaultProps = {
+  family: 'mdi'
+};
 
-  render: function() {
+class Icon extends Component {
+  render() {
     const { type, family, size, className, onClick } = this.props;
 
     let classes = {};
@@ -29,6 +27,9 @@ const Icon = React.createClass({
 
     return <i className={classNames(classes)} onClick={onClick} />;
   }
-});
+}
+
+Icon.propTypes = propTypes;
+Icon.defaultProps = defaultProps;
 
 export default Icon;

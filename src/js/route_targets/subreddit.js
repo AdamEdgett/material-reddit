@@ -11,7 +11,9 @@ const SubredditTarget = {
     const { subreddit, sort, time } = request.namedParams;
     const { count, before, after } = request.queryParams;
 
-    var component = React.render(
+    let subreddits;
+
+    let component = React.render(
       <Page>
         <List />
       </Page>,
@@ -24,9 +26,14 @@ const SubredditTarget = {
       type: 'json',
       crossOrigin: true,
       success: function (resp) {
-        component.setProps({
-          subreddits: humps.camelizeKeys(_.pluck(resp.data.children, 'data'))
-        });
+        subreddits = humps.camelizeKeys(_.pluck(resp.data.children, 'data'));
+
+        component = React.render(
+          <Page subreddits={subreddits}>
+            <List {...component.props.children.props}/>
+          </Page>,
+          Page.getMountNode()
+        );
       }
     });
 
@@ -63,13 +70,16 @@ const SubredditTarget = {
       crossOrigin: true,
       data: data,
       success: function (resp) {
-        component.setProps({
-          childProps: {
-            links: humps.camelizeKeys(_.pluck(resp.data.children, 'data')),
-            before: humps.camelizeKeys(resp.data.before),
-            after: humps.camelizeKeys(resp.data.after)
-          }
-        });
+        const links = humps.camelizeKeys(_.pluck(resp.data.children, 'data'));
+        const before = humps.camelizeKeys(resp.data.before);
+        const after = humps.camelizeKeys(resp.data.after);
+
+        component = React.render(
+          <Page {...component.props}>
+            <List links={links} before={before} after={after} />
+          </Page>,
+          Page.getMountNode()
+        );
       }
     });
   }

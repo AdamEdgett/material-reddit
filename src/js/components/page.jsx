@@ -1,21 +1,19 @@
-import React from 'react/addons';
+import React, { Component, PropTypes } from 'react/addons';
 import _ from 'lodash';
 
 import Nav from 'components/nav.jsx';
 
-const Page = React.createClass({
-  statics: {
-    getMountNode: function() {
-      return document.querySelector('#content-anchor');
-    }
-  },
+const propTypes = {
+  subreddits: PropTypes.array,
+  childProps: PropTypes.object
+};
 
-  propTypes: {
-    subreddits: React.PropTypes.array,
-    childProps: React.PropTypes.object
-  },
+class Page extends Component {
+  static getMountNode() {
+    return document.querySelector('#content-anchor');
+  }
 
-  renderChildren: function() {
+  renderChildren() {
     const { childProps } = this.props;
     const cloneWithProps = _.partial(React.addons.cloneWithProps, _, childProps);
 
@@ -27,9 +25,9 @@ const Page = React.createClass({
     else {
       return cloneWithProps(this.props.children);
     }
-  },
+  }
 
-  render: function() {
+  render() {
     const { subreddits } = this.props;
 
     return (
@@ -39,6 +37,8 @@ const Page = React.createClass({
       </div>
     );
   }
-});
+}
+
+Page.propTypes = propTypes;
 
 export default Page;

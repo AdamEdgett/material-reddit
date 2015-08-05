@@ -1,28 +1,28 @@
-import React from 'react';
+import React, { Component, PropTypes } from 'react';
 import _ from 'lodash';
 import moment from 'moment';
 import classNames from 'classnames';
 
 import Icon from 'components/icon.jsx';
 
-const Link = React.createClass({
-  propTypes: {
-    domain: React.PropTypes.string,
-    subreddit: React.PropTypes.string,
-    subredditId: React.PropTypes.string,
-    id: React.PropTypes.string,
-    author: React.PropTypes.string,
-    numComments: React.PropTypes.number,
-    score: React.PropTypes.number,
-    title: React.PropTypes.string,
-    url: React.PropTypes.string,
-    name: React.PropTypes.string,
-    createdUtc: React.PropTypes.number,
-    permalink: React.PropTypes.string,
-    thumbnail: React.PropTypes.string
-  },
+const propTypes = {
+  domain: PropTypes.string,
+  subreddit: PropTypes.string,
+  subredditId: PropTypes.string,
+  id: PropTypes.string,
+  author: PropTypes.string,
+  numComments: PropTypes.number,
+  score: PropTypes.number,
+  title: PropTypes.string,
+  url: PropTypes.string,
+  name: PropTypes.string,
+  createdUtc: PropTypes.number,
+  permalink: PropTypes.string,
+  thumbnail: PropTypes.string
+};
 
-  render: function() {
+class Link extends Component {
+  render() {
     const { url, title, createdUtc, author, subreddit, permalink, thumbnail, numComments } = this.props;
 
     const created = moment.unix(createdUtc);
@@ -66,6 +66,8 @@ const Link = React.createClass({
       </div>
     );
   }
-});
+}
+
+Link.propTypes = propTypes;
 
 export default Link;

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component, PropTypes } from 'react';
 import Avaitor from 'aviator';
 import _ from 'lodash';
 
@@ -15,16 +15,16 @@ const TIME_RANGES = {
   'all': 'all time'
 };
 
-const List = React.createClass({
-  propTypes: {
-    links: React.PropTypes.arrayOf(
-      React.PropTypes.shape(Link.propTypes)
-    ),
-    before: React.PropTypes.string,
-    after: React.PropTypes.string
-  },
+const propTypes = {
+  links: PropTypes.arrayOf(
+    PropTypes.shape(Link.propTypes)
+  ),
+  before: PropTypes.string,
+  after: PropTypes.string
+};
 
-  render: function() {
+class List extends Component {
+  render() {
     const { links, after, before } = this.props;
     const request = Avaitor.getCurrentRequest();
 
@@ -74,9 +74,9 @@ const List = React.createClass({
         </div>
       </div>
     );
-  },
+  }
 
-  changeTime: function(event) {
+  changeTime(event) {
     const selectedTime = event.target.value;
     const request = Aviator.getCurrentRequest();
     const { matchedRoute, namedParams, queryParams } = request;
@@ -89,9 +89,9 @@ const List = React.createClass({
     Avaitor.navigate(route, {
       namedParams: _.defaults( {time: selectedTime}, namedParams )
     });
-  },
+  }
 
-  onNav: function(navParams) {
+  onNav(navParams) {
     const request = Aviator.getCurrentRequest();
     const { matchedRoute, namedParams } = request;
 
@@ -100,6 +100,8 @@ const List = React.createClass({
       queryParams: _.extend(navParams, { count: DEFAULT_COUNT })
     });
   }
-});
+}
+
+List.propTypes = propTypes;
 
 export default List;

@@ -1,21 +1,21 @@
-import React from 'react';
+import React, { Component, PropTypes } from 'react';
 import Avaitor from 'aviator';
 import _ from 'lodash';
 import classNames from 'classnames';
 
-const Sidebar = React.createClass({
-  propTypes: {
-    subreddits: React.PropTypes.arrayOf(
-      React.PropTypes.shape({
-        displayName: React.PropTypes.string,
-        title: React.PropTypes.string,
-        url: React.PropTypes.string
-      })
-    ),
-    expanded: React.PropTypes.bool
-  },
+const propTypes = {
+  subreddits: PropTypes.arrayOf(
+    PropTypes.shape({
+      displayName: PropTypes.string,
+      title: PropTypes.string,
+      url: PropTypes.string
+    })
+  ),
+  expanded: PropTypes.bool
+};
 
-  render: function() {
+class Sidebar extends Component {
+  render() {
     const { subreddits, expanded } = this.props;
 
     const request = Aviator.getCurrentRequest();
@@ -45,6 +45,8 @@ const Sidebar = React.createClass({
       </div>
     );
   }
-});
+}
+
+Sidebar.propTypes = propTypes;
 
 export default Sidebar;
