@@ -36,8 +36,9 @@ class List extends Component {
         return <option value={value} key={value}>{title}</option>;
       });
 
+      // @TODO fix materialize css syling of selector
       timeSelector = (
-        <select defaultValue={currentRange} onChange={this.changeTime} className='time-selector'>
+        <select defaultValue={currentRange} onChange={this.changeTime} className='time-selector browser-default'>
           {renderedOptions}
         </select>
       );
