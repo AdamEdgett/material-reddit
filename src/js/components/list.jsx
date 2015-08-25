@@ -4,16 +4,9 @@ import _ from 'lodash';
 
 import Icon from 'components/icon.jsx';
 import Link from 'components/link.jsx';
+import TimeSelector from 'components/time_selector.jsx';
 
 const DEFAULT_COUNT = 25;
-
-const TIME_RANGES = {
-  'hour': 'past hour',
-  'day': 'past 24 hours',
-  'month': 'past month',
-  'year': 'past year',
-  'all': 'all time'
-};
 
 const propTypes = {
   links: PropTypes.arrayOf(
@@ -30,18 +23,8 @@ class List extends Component {
 
     let timeSelector;
     if (_.isEqual(request.namedParams.sort, 'top')) {
-      const currentRange = request.namedParams.time || 'day';
-
-      const renderedOptions = _.map(TIME_RANGES, (title, value) => {
-        return <option value={value} key={value}>{title}</option>;
-      });
-
-      // @TODO fix materialize css syling of selector
-      timeSelector = (
-        <select defaultValue={currentRange} onChange={this.changeTime} className='time-selector browser-default'>
-          {renderedOptions}
-        </select>
-      );
+      const currentRange = request.namedParams.time;
+      timeSelector = <TimeSelector currentRange={currentRange} />;
     }
 
     const renderedLinks = _.map(links, (link) => <Link key={link.id} {...link} />);
@@ -75,21 +58,6 @@ class List extends Component {
         </div>
       </div>
     );
-  }
-
-  changeTime(event) {
-    const selectedTime = event.target.value;
-    const request = Aviator.getCurrentRequest();
-    const { matchedRoute, namedParams, queryParams } = request;
-
-    let route = matchedRoute;
-    if (!_.contains(route, '/:time')) {
-      route += '/:time';
-    }
-
-    Avaitor.navigate(route, {
-      namedParams: _.defaults( {time: selectedTime}, namedParams )
-    });
   }
 
   onNav(navParams) {
