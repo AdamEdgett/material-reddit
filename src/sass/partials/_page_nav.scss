@@ -6,6 +6,10 @@
     background-color: $theme-color;
     cursor: pointer;
 
+    &:hover {
+      background-color: $red-400;
+    }
+
     &.prev {
     }
 
