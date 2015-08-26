@@ -12,7 +12,7 @@ const propTypes = {
     PropTypes.shape(Link.propTypes)
   ),
   before: PropTypes.string,
-  after: PropTypes.string
+  after: PropTypes.string,
 };
 
 class List extends Component {
@@ -21,8 +21,8 @@ class List extends Component {
 
     if (_.isEmpty(links)) {
       return (
-        <div className='list'>
-          <Loader size='big' />
+        <div className="list">
+          <Loader size="big" />
         </div>
       );
     }
@@ -38,7 +38,7 @@ class List extends Component {
     const renderedLinks = _.map(links, (link) => <Link key={link.id} {...link} />);
 
     return (
-      <div className='list'>
+      <div className="list">
         {timeSelector}
         {renderedLinks}
         <PageNav before={before} after={after} />

@@ -5,7 +5,7 @@ import Nav from 'components/nav.jsx';
 
 const propTypes = {
   subreddits: PropTypes.array,
-  childProps: PropTypes.object
+  childProps: PropTypes.object,
 };
 
 class Page extends Component {
@@ -22,9 +22,8 @@ class Page extends Component {
         cloneWithProps(child);
       });
     }
-    else {
-      return cloneWithProps(this.props.children);
-    }
+
+    return cloneWithProps(this.props.children);
   }
 
   render() {

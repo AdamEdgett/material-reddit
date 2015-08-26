@@ -7,7 +7,7 @@ const Page = require('components/page.jsx');
 const List = require('components/list.jsx');
 
 const SubredditTarget = {
-  view: function(request) {
+  view(request) {
     const { subreddit, sort, time } = request.namedParams;
     const { count, before, after } = request.queryParams;
 
@@ -25,7 +25,7 @@ const SubredditTarget = {
       method: 'get',
       type: 'json',
       crossOrigin: true,
-      success: function (resp) {
+      success(resp) {
         subreddits = humps.camelizeKeys(_.pluck(resp.data.children, 'data'));
 
         component = React.render(
@@ -34,7 +34,7 @@ const SubredditTarget = {
           </Page>,
           Page.getMountNode()
         );
-      }
+      },
     });
 
     let requestUrl = 'https://www.reddit.com/';
@@ -46,7 +46,7 @@ const SubredditTarget = {
     }
     requestUrl += '.json';
 
-    let data = {};
+    const data = {};
 
     if (time) {
       data.t = time;
@@ -58,8 +58,7 @@ const SubredditTarget = {
 
     if (after) {
       data.after = after;
-    }
-    else if (before) {
+    } else if (before) {
       data.before = before;
     }
 
@@ -69,20 +68,20 @@ const SubredditTarget = {
       type: 'json',
       crossOrigin: true,
       data: data,
-      success: function (resp) {
+      success(resp) {
         const links = humps.camelizeKeys(_.pluck(resp.data.children, 'data'));
-        const before = humps.camelizeKeys(resp.data.before);
-        const after = humps.camelizeKeys(resp.data.after);
+        const beforeId = humps.camelizeKeys(resp.data.before);
+        const afterId = humps.camelizeKeys(resp.data.after);
 
         component = React.render(
           <Page {...component.props}>
-            <List links={links} before={before} after={after} />
+            <List links={links} before={beforeId} after={afterId} />
           </Page>,
           Page.getMountNode()
         );
-      }
+      },
     });
-  }
+  },
 };
 
 export default SubredditTarget;

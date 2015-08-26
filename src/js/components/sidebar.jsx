@@ -1,5 +1,4 @@
 import React, { Component, PropTypes } from 'react';
-import Avaitor from 'aviator';
 import _ from 'lodash';
 import classNames from 'classnames';
 
@@ -8,10 +7,10 @@ const propTypes = {
     PropTypes.shape({
       displayName: PropTypes.string,
       title: PropTypes.string,
-      url: PropTypes.string
+      url: PropTypes.string,
     })
   ),
-  expanded: PropTypes.bool
+  expanded: PropTypes.bool,
 };
 
 class Sidebar extends Component {
@@ -24,7 +23,7 @@ class Sidebar extends Component {
     const subredditList = _.map(subreddits, (subreddit) => {
       const subredditClasses = {
         'subreddit': true,
-        'current': _.isEqual(subreddit.displayName, currentSubreddit)
+        'current': _.isEqual(subreddit.displayName, currentSubreddit),
       };
 
       return (
@@ -36,7 +35,7 @@ class Sidebar extends Component {
 
     const classes = {
       'sidebar': true,
-      'expanded': expanded
+      'expanded': expanded,
     };
 
     return (

@@ -7,23 +7,24 @@ const propTypes = {
   family: PropTypes.string,
   size: PropTypes.string,
   className: PropTypes.string,
-  onClick: PropTypes.func
+  onClick: PropTypes.func,
 };
 
 const defaultProps = {
-  family: 'mdi'
+  family: 'mdi',
 };
 
 class Icon extends Component {
   render() {
     const { type, family, size, className, onClick } = this.props;
 
-    let classes = {};
-    classes[className] = !_.isEmpty(className);
-    classes[type] = true;
-    classes[family] = true;
-    classes[`${family}-${type}`] = true;
-    classes[`${size}`] = !_.isEmpty(size);
+    const classes = {
+      [className]: !_.isEmpty(className),
+      [type]: true,
+      [family]: true,
+      [`${family}-${type}`]: true,
+      [`${size}`]: !_.isEmpty(size),
+    };
 
     return <i className={classNames(classes)} onClick={onClick} />;
   }
