@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import Avaitor from 'aviator';
 import _ from 'lodash';
 
+import Loader from 'components/loader.jsx';
 import Link from 'components/link.jsx';
 import TimeSelector from 'components/time_selector.jsx';
 import PageNav from 'components/page_nav.jsx';
@@ -17,6 +18,15 @@ const propTypes = {
 class List extends Component {
   render() {
     const { links, after, before } = this.props;
+
+    if (_.isEmpty(links)) {
+      return (
+        <div className='list'>
+          <Loader size='big' />
+        </div>
+      );
+    }
+
     const request = Avaitor.getCurrentRequest();
 
     let timeSelector;
