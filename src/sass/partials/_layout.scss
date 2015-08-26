@@ -10,7 +10,7 @@
   }
 
   width: 1200px;
-  padding: $nav-height 15px 40px;
+  padding: ($nav-height + 10) 15px 40px;
   margin-left: auto;
   margin-right: auto;
 }
