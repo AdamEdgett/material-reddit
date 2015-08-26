@@ -6,15 +6,22 @@
     "url": "https://github.com/adamedgett/material-reddit",
     "type": "git"
   },
+  "scripts": {
+    "lint": "./node_modules/.bin/eslint src/js/**/*"
+  },
   "dependencies": {
     "react": "^0.13.2"
   },
   "devDependencies": {
     "aviator": "^0.4.4",
+    "babel-eslint": "^4.1.0",
     "babelify": "^5.0.4",
     "bower": "^1.4.1",
     "browserify": "^8.1.1",
     "classnames": "^1.2.1",
+    "eslint": "^1.2.1",
+    "eslint-config-airbnb": "0.0.8",
+    "eslint-plugin-react": "^3.2.3",
     "gulp": "^3.8.1",
     "gulp-compass": "^2.0.3",
     "gulp-connect": "^2.2.0",
