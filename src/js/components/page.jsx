@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react/addons';
 import _ from 'lodash';
 
-import Nav from 'components/nav.jsx';
+import Nav from 'components/page/nav.jsx';
 
 const propTypes = {
   subreddits: PropTypes.array,

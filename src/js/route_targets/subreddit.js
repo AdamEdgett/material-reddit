@@ -4,7 +4,7 @@ const _ = require('lodash');
 const humps = require('humps');
 
 const Page = require('components/page.jsx');
-const List = require('components/list.jsx');
+const List = require('components/subreddit/list.jsx');
 
 const SubredditTarget = {
   view(request) {

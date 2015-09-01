@@ -3,7 +3,7 @@ import Avaitor from 'aviator';
 import _ from 'lodash';
 import classNames from 'classnames';
 
-import Sidebar from 'components/sidebar.jsx';
+import Sidebar from 'components/page/sidebar.jsx';
 import Icon from 'components/icon.jsx';
 
 const propTypes = {

@@ -3,9 +3,9 @@ import Avaitor from 'aviator';
 import _ from 'lodash';
 
 import Loader from 'components/loader.jsx';
-import Link from 'components/link.jsx';
-import TimeSelector from 'components/time_selector.jsx';
-import PageNav from 'components/page_nav.jsx';
+import Link from 'components/subreddit/link.jsx';
+import TimeSelector from 'components/subreddit/time_selector.jsx';
+import PageNav from 'components/subreddit/page_nav.jsx';
 
 const propTypes = {
   links: PropTypes.arrayOf(
