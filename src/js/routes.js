@@ -1,4 +1,4 @@
-const SubredditTarget = require('route_targets/subreddit.js');
+import SubredditTarget from 'route_targets/subreddit.js';
 
 const Routes = {
   '/r': {

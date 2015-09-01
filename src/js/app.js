@@ -1,6 +1,6 @@
-const Aviator = require('aviator');
+import Aviator from 'aviator';
 
-const Routes = require('routes.js');
+import Routes from 'routes.js';
 
 window.onload = function () {
   Aviator.setRoutes(Routes);

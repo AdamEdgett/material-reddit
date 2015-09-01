@@ -1,10 +1,10 @@
-const React = require('react');
-const reqwest = require('reqwest');
-const _ = require('lodash');
-const humps = require('humps');
+import React from 'react';
+import reqwest from 'reqwest';
+import _ from 'lodash';
+import humps from 'humps';
 
-const Page = require('components/page.jsx');
-const List = require('components/subreddit/list.jsx');
+import Page from 'components/page.jsx';
+import List from 'components/subreddit/list.jsx';
 
 const SubredditTarget = {
   view(request) {
