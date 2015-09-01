@@ -1,13 +1,17 @@
 @import "modules/_colors.scss";
 
 $theme-color: $red-500;
-$nav-height: 144px;
+$nav-height: 142px;
 
 @import "partials/_layout.scss";
 @import "partials/_nav.scss";
 @import "partials/_sidebar.scss";
 @import "partials/_links.scss";
 @import "partials/_page_nav.scss";
+
+html {
+  font-size: 14px;
+}
 
 body {
   font-family: Roboto, sans-serif;
