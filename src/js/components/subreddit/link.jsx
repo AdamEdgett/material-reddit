@@ -4,6 +4,7 @@ import moment from 'moment';
 import classNames from 'classnames';
 
 import Icon from 'components/icon.jsx';
+import Votes from 'components/subreddit/votes.jsx';
 
 const propTypes = {
   domain: PropTypes.string,
@@ -23,7 +24,7 @@ const propTypes = {
 
 class Link extends Component {
   render() {
-    const { url, title, createdUtc, author, subreddit, permalink, thumbnail, numComments } = this.props;
+    const { url, title, createdUtc, author, subreddit, permalink, thumbnail, score, numComments } = this.props;
 
     const created = moment.unix(createdUtc);
 
@@ -46,6 +47,7 @@ class Link extends Component {
             {renderedThumbnail}
           </a>
         </div>
+        <Votes score={score} />
         <div className="content">
           <a href={url} className="link">{title}</a>
           <div className="info">

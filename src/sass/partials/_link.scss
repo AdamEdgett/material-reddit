@@ -24,6 +24,23 @@
     }
   }
 
+  .score-container {
+    display: inline-block;
+    float: left;
+    padding: 4px;
+    width: 30px;
+    height: 70px;
+    vertical-align: middle;
+    background-color: $grey-100;
+
+    .score {
+      vertical-align: middle;
+      top: 22px;
+      position: relative;
+      color: $grey-400;
+    }
+  }
+
   .info {
     font-size: 0.9rem;
     color: $grey-400;
